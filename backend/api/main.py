@@ -129,20 +129,25 @@ async def startup_event():
     print("Starting Delhi Flood Monitor API...")
     print("=" * 60)
     
-    # Load trained model
+    # Load trained model (optional - not needed for /predict endpoint)
     model_path = Path(__file__).parent.parent / "model" / "artifacts" / "flood_model_v1.pkl"
     
     if model_path.exists():
-        print(f"Loading model from {model_path}")
-        model = FloodFailureModel.load(str(model_path))
-        feature_engineer = model.feature_engineer
-        print("  Model loaded successfully!")
+        try:
+            print(f"Loading model from {model_path}")
+            model = FloodFailureModel.load(str(model_path))
+            feature_engineer = model.feature_engineer
+            print("  Model loaded successfully!")
+        except Exception as e:
+            print(f"  WARNING: Model loading failed: {e}")
+            print("  Simple /predict endpoint will still work")
+            model = None
     else:
         print(f"WARNING: Model not found at {model_path}")
-        print("  Run train_model_1.py first to train the model.")
+        print("  Simple /predict endpoint will still work")
         model = None
     
-    # Initialize data pipeline
+    # Initialize data pipeline (optional)
     print("\nInitializing data pipeline...")
     try:
         pipeline = DataPipeline()
@@ -156,6 +161,7 @@ async def startup_event():
         print(f"  Loaded {len(ward_static_data)} wards")
     except Exception as e:
         print(f"  Data pipeline initialization failed: {e}")
+        print("  Simple /predict endpoint will still work")
         ward_static_data = {}
         ward_historical_data = {}
     
@@ -206,8 +212,7 @@ async def simple_predict(request: SimplePredictionRequest):
           "risk_level": "High"
         }
     """
-    if model is None:
-        raise HTTPException(status_code=503, detail="Model not loaded")
+    # This endpoint doesn't need the ML model - uses simple weighted formula
     
     # Compute MPI score from inputs
     # Normalize inputs to 0-1 scale
