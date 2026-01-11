@@ -293,12 +293,21 @@ class WardDataProcessor:
         print(f"Saved ward features to {path}")
     
     def load_features(self, path: str = None) -> pd.DataFrame:
-        """Load pre-computed features from CSV."""
+        """Load pre-computed features from CSV (enhanced version if available)."""
         if path is None:
-            path = self.config.PROCESSED_DIR / "ward_static_features.csv"
+            # Try enhanced features first
+            enhanced_path = self.config.PROCESSED_DIR / "ward_static_features_enhanced.csv"
+            basic_path = self.config.PROCESSED_DIR / "ward_static_features.csv"
+            
+            if enhanced_path.exists():
+                path = enhanced_path
+                print(f"Loading ENHANCED ward features with infrastructure data")
+            else:
+                path = basic_path
+                print(f"Loading basic ward features")
         
         self.ward_features = pd.read_csv(path, index_col='ward_id')
-        print(f"Loaded ward features from {path}")
+        print(f"Loaded {len(self.ward_features)} wards with {len(self.ward_features.columns)} features from {path}")
         return self.ward_features
 
 

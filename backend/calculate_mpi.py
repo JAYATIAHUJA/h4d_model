@@ -188,14 +188,30 @@ class MPICalculator:
             
             infra_score = drain_stress + complaint_stress  # 0-15 points
             
-            # 5. Vulnerability (10%)
+            # 5. Enhanced Vulnerability (10%) - now includes urbanization & Yamuna proximity
             low_lying_pct = static_feats.get('low_lying_pct', 15)
             mean_elevation = static_feats.get('mean_elevation', 215)
             
-            # Lower elevation + higher low-lying % = more vulnerable
-            elev_vuln = max(0, (220 - mean_elevation) / 15 * 5)  # 0-5 points
-            lowlying_vuln = low_lying_pct / 30 * 5  # 0-5 points
-            vuln_score = elev_vuln + lowlying_vuln  # 0-10 points
+            # NEW: Use flood_vulnerability_index if available (incorporates Yamuna distance + urbanization)
+            if 'flood_vulnerability_index' in static_feats:
+                flood_vuln_idx = static_feats['flood_vulnerability_index']
+                vuln_score = flood_vuln_idx * 10  # 0-10 points (pre-normalized)
+            else:
+                # Fallback: legacy calculation
+                elev_vuln = max(0, (220 - mean_elevation) / 15 * 5)  # 0-5 points
+                lowlying_vuln = low_lying_pct / 30 * 5  # 0-5 points
+                vuln_score = elev_vuln + lowlying_vuln  # 0-10 points
+            
+            # NEW: Urban congestion penalty (if available)
+            urban_penalty = 0
+            if 'urbanization_index' in static_feats:
+                # High urbanization + heavy rain = flash flood risk
+                urban_idx = static_feats['urbanization_index']
+                rain_intensity = rainfall_features.get('rain_1h', 0)
+                if rain_intensity > 10:  # Heavy rain
+                    urban_penalty = urban_idx * rain_intensity / 10 * 2  # 0-2 bonus points
+            
+            vuln_score = min(10, vuln_score + urban_penalty)  # Cap at 10
             
             # Total MPI (0-100)
             mpi = model_score + rain_score + hist_score + infra_score + vuln_score
@@ -224,7 +240,13 @@ class MPICalculator:
                 'forecast_rain_mm': rainfall_features['rain_forecast_3h'],
                 'hist_flood_count': hist_flood_freq,
                 'drain_density': round(drain_density, 2),
-                'elevation_m': round(mean_elevation, 1)
+                'elevation_m': round(mean_elevation, 1),
+                # NEW: Infrastructure metrics
+                'yamuna_distance_km': round(static_feats.get('yamuna_distance_m', 0) / 1000, 2),
+                'building_density': round(static_feats.get('building_density_per_km2', 0), 1),
+                'road_density': round(static_feats.get('road_density_km_per_km2', 0), 1),
+                'urbanization_index': round(static_feats.get('urbanization_index', 0), 3),
+                'flood_vuln_index': round(static_feats.get('flood_vulnerability_index', 0), 3)
             })
         
         df = pd.DataFrame(results)
