@@ -676,16 +676,32 @@ class FloodFailureModel:
         return self._training_metrics.copy()
     
     def save(self, path: str = None):
-        """Save model to disk."""
+        """Save model to disk with cross-platform compatibility."""
         if path is None:
             path = self.config.model_dir / "flood_model_v1.pkl"
         
         Path(path).parent.mkdir(parents=True, exist_ok=True)
         
+        # Convert Path objects to strings for cross-platform compatibility
+        config_dict = {
+            'model_type': self.config.model_type,
+            'n_estimators': self.config.n_estimators,
+            'max_depth': self.config.max_depth,
+            'learning_rate': self.config.learning_rate,
+            'min_samples_leaf': self.config.min_samples_leaf,
+            'rainfall_thresholds': self.config.rainfall_thresholds,
+            'risk_thresholds': self.config.risk_thresholds,
+            'test_size': self.config.test_size,
+            'val_size': self.config.val_size,
+            'random_state': self.config.random_state,
+            'model_dir': str(self.config.model_dir),  # Convert to string
+            'data_dir': str(self.config.data_dir)     # Convert to string
+        }
+        
         model_data = {
             'model': self.model,
             'calibrator': self.calibrator,
-            'config': self.config,
+            'config_dict': config_dict,  # Use dict instead of config object
             'feature_names': self.feature_names,
             'feature_importance': self._feature_importance,
             'training_metrics': self._training_metrics,
@@ -716,7 +732,29 @@ class FloodFailureModel:
         with open(path, 'rb') as f:
             model_data = CrossPlatformUnpickler(f).load()
         
-        instance = cls(config=model_data['config'])
+        # Reconstruct config from dict or legacy config object
+        if 'config_dict' in model_data:
+            # New format: config saved as dict
+            config_dict = model_data['config_dict']
+            config = ModelConfig(
+                model_type=config_dict['model_type'],
+                n_estimators=config_dict['n_estimators'],
+                max_depth=config_dict['max_depth'],
+                learning_rate=config_dict['learning_rate'],
+                min_samples_leaf=config_dict['min_samples_leaf'],
+                rainfall_thresholds=config_dict['rainfall_thresholds'],
+                risk_thresholds=config_dict['risk_thresholds'],
+                test_size=config_dict['test_size'],
+                val_size=config_dict['val_size'],
+                random_state=config_dict['random_state'],
+                model_dir=Path(config_dict['model_dir']),
+                data_dir=Path(config_dict['data_dir'])
+            )
+        else:
+            # Legacy format: config saved as object (may have Path issues)
+            config = model_data.get('config', ModelConfig())
+        
+        instance = cls(config=config)
         instance.model = model_data['model']
         instance.calibrator = model_data['calibrator']
         instance.feature_names = model_data['feature_names']
