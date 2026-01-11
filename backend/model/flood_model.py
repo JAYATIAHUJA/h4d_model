@@ -523,8 +523,12 @@ class FloodFailureModel:
         if X.ndim == 1:
             X = X.reshape(1, -1)
         
+        # Convert to DataFrame with feature names to avoid sklearn warning
+        import pandas as pd
+        X_df = pd.DataFrame(X, columns=self.feature_names)
+        
         # Get raw probabilities
-        raw_proba = self.model.predict_proba(X)[:, 1]
+        raw_proba = self.model.predict_proba(X_df)[:, 1]
         
         # Apply calibration if available
         if self.calibrator is not None:
