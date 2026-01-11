@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files
+*.osm.pbf
+*.nc
+*.tif
+*.tiff
+*.hdf
+*.h5
+
+# Model artifacts (keep only final models)
+backend/model/artifacts/*.pkl
+!backend/model/artifacts/flood_model_v1.pkl
+
+# Processed data (too large)
+backend/data/processed/*.csv
+!backend/data/processed/ward_static_features.csv
+
+# Raw data folders
+backend/data/raw/dem/
+backend/data/raw/districts/
+backend/data/raw/drains/
+backend/data/raw/rainfall/*.nc
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# Environment
+.env
+.env.local
+*.log
