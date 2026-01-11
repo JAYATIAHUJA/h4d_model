@@ -103,6 +103,19 @@ class HealthResponse(BaseModel):
     timestamp: str
 
 
+class SimplePredictionRequest(BaseModel):
+    """Simple prediction request for external integrations."""
+    rainfall: float  # mm of rainfall
+    water_logging_reports: int  # number of reports
+    pothole_count: int  # number of potholes
+
+
+class SimplePredictionResponse(BaseModel):
+    """Simple prediction response."""
+    mpi_score: float  # 0.0 to 1.0
+    risk_level: str  # Low, Moderate, High, Critical
+
+
 # =============================================================================
 # STARTUP/SHUTDOWN
 # =============================================================================
@@ -169,6 +182,61 @@ async def health_check():
 async def api_health():
     """API health check."""
     return await health_check()
+
+
+@app.post("/predict", response_model=SimplePredictionResponse)
+async def simple_predict(request: SimplePredictionRequest):
+    """
+    Simple prediction endpoint for external integrations.
+    
+    Takes rainfall, water logging reports, and pothole count,
+    returns MPI score (0-1) and risk level.
+    
+    Example:
+        POST /predict
+        {
+          "rainfall": 42.5,
+          "water_logging_reports": 12,
+          "pothole_count": 5
+        }
+        
+        Response:
+        {
+          "mpi_score": 0.87,
+          "risk_level": "High"
+        }
+    """
+    if model is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
+    
+    # Compute MPI score from inputs
+    # Normalize inputs to 0-1 scale
+    rainfall_norm = min(request.rainfall / 100.0, 1.0)  # Cap at 100mm
+    logging_norm = min(request.water_logging_reports / 50.0, 1.0)  # Cap at 50 reports
+    pothole_norm = min(request.pothole_count / 20.0, 1.0)  # Cap at 20 potholes
+    
+    # Calculate MPI with weighted components
+    # 50% rainfall, 30% waterlogging, 20% infrastructure (potholes)
+    mpi_score = (
+        0.50 * rainfall_norm +
+        0.30 * logging_norm +
+        0.20 * pothole_norm
+    )
+    
+    # Determine risk level
+    if mpi_score >= 0.75:
+        risk_level = "Critical"
+    elif mpi_score >= 0.50:
+        risk_level = "High"
+    elif mpi_score >= 0.25:
+        risk_level = "Moderate"
+    else:
+        risk_level = "Low"
+    
+    return SimplePredictionResponse(
+        mpi_score=round(mpi_score, 2),
+        risk_level=risk_level
+    )
 
 
 @app.get("/api/wards", response_model=List[str])
@@ -322,54 +390,95 @@ async def predict_all_wards(request: BatchPredictionRequest):
 @app.get("/api/risk-data")
 async def get_risk_data():
     """
-    Get current risk data for all wards in JSON format.
-    This is designed to be consumed by the frontend map.
+    Get current ward-wise MPI risk scores.
+    Returns the latest MPI calculation results from calculate_mpi.py.
     """
-    if model is None or not ward_static_data:
-        # Return empty data if model not loaded
+    try:
+        # Load latest MPI scores
+        mpi_file = Path(__file__).parent.parent / "data" / "processed" / "mpi_scores_latest.csv"
+        
+        if not mpi_file.exists():
+            # Fallback to static JSON if MPI not calculated yet
+            risk_file = Path(__file__).parent.parent.parent / "frontend" / "public" / "data" / "ward_risk.json"
+            if risk_file.exists():
+                with open(risk_file) as f:
+                    return json.load(f)
+            return {}
+        
+        import pandas as pd
+        df = pd.read_csv(mpi_file)
+        
+        # Convert to frontend format
+        risk_data = {}
+        for _, row in df.iterrows():
+            risk_data[row['ward_id']] = {
+                "risk_score": float(row['mpi_score']),
+                "rain_mm": float(row.get('current_rain_mm', 0) + row.get('forecast_rain_mm', 0)),
+                "status": row['risk_level'],
+                "model_prob": float(row['model_prob']) * 100,
+                "flood_history": int(row['hist_flood_count']),
+                "drain_density": float(row['drain_density'])
+            }
+        
+        return risk_data
+        
+    except Exception as e:
+        print(f"Error loading risk data: {e}")
         return {}
-    
-    # Use default rainfall (simulating current conditions)
-    # In production, this would come from real-time IMD API
-    timestamp = datetime.now()
-    temporal_feats = feature_engineer.compute_temporal_features(timestamp)
-    
-    # Simulate light rainfall
-    rainfall_feats = {
-        'rain_1h': 5.0,
-        'rain_3h': 15.0,
-        'rain_6h': 25.0,
-        'rain_24h': 40.0,
-        'rain_intensity': 5.0,
-        'rain_forecast_3h': 10.0
-    }
-    
-    risk_data = {}
-    
-    for ward_id, static_feats in ward_static_data.items():
-        hist_feats = ward_historical_data.get(ward_id, {
-            'hist_flood_freq': 0,
-            'monsoon_risk_score': 0.5,
-            'complaint_baseline': 5
-        })
+
+
+@app.get("/api/mpi-summary")
+async def get_mpi_summary():
+    """Get summary statistics of current MPI scores."""
+    try:
+        mpi_file = Path(__file__).parent.parent / "data" / "processed" / "mpi_scores_latest.csv"
         
-        X = feature_engineer.create_feature_vector(
-            rainfall_feats, static_feats, hist_feats, temporal_feats
-        )
+        if not mpi_file.exists():
+            raise HTTPException(status_code=404, detail="MPI data not found")
         
-        probability = float(model.predict_proba(X)[0])
-        risk_level = model.predict_risk_level(X.reshape(1, -1))[0]
+        import pandas as pd
+        df = pd.read_csv(mpi_file)
         
-        risk_data[ward_id] = {
-            "risk_score": round(probability * 100, 1),
-            "rain_mm": rainfall_feats['rain_3h'],
-            "status": risk_level.capitalize()
+        risk_counts = df['risk_level'].value_counts().to_dict()
+        
+        return {
+            "total_wards": len(df),
+            "risk_distribution": {
+                "Low": risk_counts.get("Low", 0),
+                "Moderate": risk_counts.get("Moderate", 0),
+                "High": risk_counts.get("High", 0),
+                "Critical": risk_counts.get("Critical", 0)
+            },
+            "mpi_stats": {
+                "mean": float(df['mpi_score'].mean()),
+                "min": float(df['mpi_score'].min()),
+                "max": float(df['mpi_score'].max())
+            },
+            "updated_at": df['timestamp'].iloc[0] if 'timestamp' in df.columns else None
         }
-    
-    return risk_data
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
 
 
-@app.get("/api/feature-importance")
+@app.get("/health")
+async def health_check():
+    """Health check endpoint."""
+    return {
+        "status": "healthy",
+        "timestamp": datetime.now().isoformat()
+    }
+
+
+# =============================================================================
+# STARTUP & SHUTDOWN
+# =============================================================================
+
+@app.on_event("startup")
+async def startup_event():
+    """Load model and data on startup."""
+    print("Loading model and data...")
+    global model, pipeline, feature_engineer, ward_static_data, ward_historical_data
 async def get_feature_importance():
     """Get feature importance from the trained model."""
     if model is None:
