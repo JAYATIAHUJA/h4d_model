@@ -56,12 +56,22 @@ class MPICalculator:
         print("Loading ward data...")
         try:
             pipeline = DataPipeline()
-            pipeline.initialize()
+            pipeline.initialize()  # Initialize first to load everything
+            
+            # Override with enhanced features if available
+            enhanced_path = Path("backend/data/processed/ward_static_features_enhanced.csv")
+            if enhanced_path.exists():
+                print("  Using ENHANCED features (with Yamuna, buildings, roads)")
+                pipeline.ward_processor.load_features(str(enhanced_path))
+            
             self.ward_static, self.ward_historical = pipeline.get_ward_data()
-            print(f"[OK] Loaded {len(self.ward_static)} wards")
+            
+            print(f"[OK] Loaded {len(self.ward_static)} wards with {len(self.ward_static.columns)} features")
             return True
         except Exception as e:
             print(f"[ERROR] Error loading ward data: {e}")
+            import traceback
+            traceback.print_exc()
             return False
     
     def load_civic_complaints(self):
