@@ -8,3 +8,11 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.13.0
+      - key: PYTHONPATH
+        value: /opt/render/project/src/backend
+    # Ensure model artifacts are deployed
+    includeFiles:
+      - model/artifacts/flood_model_v1.pkl
+      - model/artifacts/feature_importance.json
+      - model/artifacts/training_metrics.json
+      - data/processed/*.csv
