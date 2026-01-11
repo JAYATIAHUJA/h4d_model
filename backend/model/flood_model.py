@@ -701,9 +701,20 @@ class FloodFailureModel:
     
     @classmethod
     def load(cls, path: str) -> 'FloodFailureModel':
-        """Load model from disk."""
+        """Load model from disk with cross-platform compatibility."""
+        import pathlib
+        import io
+        
+        # Custom unpickler to handle WindowsPath -> PosixPath conversion
+        class CrossPlatformUnpickler(pickle.Unpickler):
+            def find_class(self, module, name):
+                # Convert WindowsPath to PosixPath on Linux
+                if module == 'pathlib' and name in ('WindowsPath', 'PosixPath'):
+                    return pathlib.PurePath
+                return super().find_class(module, name)
+        
         with open(path, 'rb') as f:
-            model_data = pickle.load(f)
+            model_data = CrossPlatformUnpickler(f).load()
         
         instance = cls(config=model_data['config'])
         instance.model = model_data['model']
