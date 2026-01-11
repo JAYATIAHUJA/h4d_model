@@ -515,6 +515,115 @@ async def get_model_info():
     }
 
 
+@app.get("/api/test")
+async def test_endpoint():
+    """Test endpoint with sample data to verify model and MPI calculations."""
+    return {
+        "status": "ok",
+        "model_loaded": model is not None,
+        "wards_loaded": len(ward_static_data) if ward_static_data else 0,
+        "message": "Backend API is working!",
+        "endpoints": {
+            "health": "/api/health",
+            "all_wards": "/api/predict/all",
+            "ward_detail": "/api/wards/{ward_id}",
+            "scenario": "POST /api/predict/all",
+            "mpi": "/api/mpi-summary",
+            "risk_data": "/api/risk-data",
+            "test_prediction": "/api/test/prediction"
+        }
+    }
+
+
+@app.get("/api/test/prediction")
+async def test_prediction_endpoint():
+    """Test prediction with sample rainfall scenario."""
+    if model is None:
+        return {"error": "Model not loaded", "model_loaded": False}
+    
+    if not ward_static_data:
+        return {"error": "Ward data not loaded", "wards_loaded": 0}
+    
+    # Sample rainfall: Heavy monsoon rain (50mm in 3 hours)
+    test_rainfall = {
+        'rain_1h': 20.0,
+        'rain_3h': 50.0,
+        'rain_6h': 70.0,
+        'rain_24h': 90.0,
+        'rain_intensity': 20.0,
+        'rain_forecast_3h': 25.0
+    }
+    
+    # Test on high-risk ward (038E - known to have floods)
+    test_ward_id = "038E"
+    
+    if test_ward_id not in ward_static_data:
+        # Fallback to first ward
+        test_ward_id = list(ward_static_data.keys())[0]
+    
+    static_feats = ward_static_data[test_ward_id]
+    hist_feats = ward_historical_data.get(test_ward_id, {
+        'hist_flood_freq': 5,
+        'monsoon_risk_score': 0.7,
+        'complaint_baseline': 10
+    })
+    
+    temporal_feats = feature_engineer.compute_temporal_features(datetime.now())
+    
+    # Create feature vector
+    X = feature_engineer.create_feature_vector(
+        test_rainfall, static_feats, hist_feats, temporal_feats
+    )
+    
+    # Get prediction
+    probability = float(model.predict_proba(X)[0])
+    risk_level = model.predict_risk_level(X.reshape(1, -1))[0]
+    
+    # Calculate MPI components manually
+    model_score = probability * 40
+    
+    rain_total = test_rainfall['rain_3h'] + test_rainfall['rain_forecast_3h']
+    rain_score = 20 if rain_total > 65 else 15
+    
+    hist_score = min(15, hist_feats.get('hist_flood_freq', 0) * 2.5)
+    
+    drain_density = static_feats.get('drain_density', 0)
+    infra_score = max(0, 10 - drain_density) / 10 * 15
+    
+    low_lying_pct = static_feats.get('low_lying_pct', 15)
+    vuln_score = low_lying_pct / 30 * 10
+    
+    mpi_score = model_score + rain_score + hist_score + infra_score + vuln_score
+    
+    return {
+        "test_scenario": "Heavy monsoon rain (50mm/3h)",
+        "test_ward": test_ward_id,
+        "ward_info": {
+            "elevation": static_feats.get('mean_elevation', 0),
+            "drain_density": static_feats.get('drain_density', 0),
+            "low_lying_pct": static_feats.get('low_lying_pct', 0),
+            "historical_floods": hist_feats.get('hist_flood_freq', 0)
+        },
+        "rainfall_input": test_rainfall,
+        "model_prediction": {
+            "probability": round(probability, 3),
+            "risk_level": risk_level,
+            "model_score": round(model_score, 1)
+        },
+        "mpi_calculation": {
+            "total_mpi": round(mpi_score, 1),
+            "model_contribution": round(model_score, 1),
+            "rainfall_contribution": round(rain_score, 1),
+            "historical_contribution": round(hist_score, 1),
+            "infrastructure_contribution": round(infra_score, 1),
+            "vulnerability_contribution": round(vuln_score, 1)
+        },
+        "interpretation": f"{'HIGH' if mpi_score > 70 else 'MODERATE' if mpi_score > 50 else 'LOW'} RISK: MPI Score = {round(mpi_score, 1)}/100",
+        "model_loaded": True,
+        "wards_loaded": len(ward_static_data)
+    }
+
+
 # =============================================================================
 # MAIN
 # =============================================================================
