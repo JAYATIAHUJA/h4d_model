@@ -462,23 +462,15 @@ async def get_mpi_summary():
 
 
 @app.get("/health")
-async def health_check():
-    """Health check endpoint."""
+async def health_check_simple():
+    """Simple health check endpoint."""
     return {
         "status": "healthy",
         "timestamp": datetime.now().isoformat()
     }
 
 
-# =============================================================================
-# STARTUP & SHUTDOWN
-# =============================================================================
-
-@app.on_event("startup")
-async def startup_event():
-    """Load model and data on startup."""
-    print("Loading model and data...")
-    global model, pipeline, feature_engineer, ward_static_data, ward_historical_data
+@app.get("/api/feature-importance")
 async def get_feature_importance():
     """Get feature importance from the trained model."""
     if model is None:
