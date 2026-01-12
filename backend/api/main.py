@@ -543,7 +543,11 @@ async def get_monsoon_preparedness():
     historical resilience, and resource capacity for monsoon season.
     """
     try:
-        prep_file = Path("backend/data/processed/monsoon_preparedness_latest.csv")
+        prep_file = Path(__file__).parent.parent / "data" / "processed" / "monsoon_preparedness_latest.csv"
+        print(f"DEBUG: Looking for file at: {prep_file}")
+        print(f"DEBUG: File exists: {prep_file.exists()}")
+        print(f"DEBUG: __file__ = {__file__}")
+        print(f"DEBUG: CWD = {Path.cwd()}")
         
         if not prep_file.exists():
             raise HTTPException(
@@ -587,7 +591,7 @@ async def get_zone_preparedness():
     with priority rankings for intervention planning.
     """
     try:
-        zone_file = Path("backend/data/processed/zone_preparedness_latest.csv")
+        zone_file = Path(__file__).parent.parent / "data" / "processed" / "zone_preparedness_latest.csv"
         
         if not zone_file.exists():
             raise HTTPException(
@@ -624,7 +628,7 @@ async def get_ward_preparedness(ward_id: str):
     Returns component breakdown, recommendations, and comparison to zone/city average.
     """
     try:
-        prep_file = Path("backend/data/processed/monsoon_preparedness_latest.csv")
+        prep_file = Path(__file__).parent.parent / "data" / "processed" / "monsoon_preparedness_latest.csv"
         
         if not prep_file.exists():
             raise HTTPException(

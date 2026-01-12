@@ -1,0 +1,2188 @@
+{
+  "timestamp": "2026-01-12T08:22:13.852838",
+  "total_wards": 272,
+  "risk_summary": {
+    "low": 272,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "wards": [
+    {
+      "ward_id": "006E",
+      "probability": 0.03253652058432935,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (3.3%)"
+    },
+    {
+      "ward_id": "007E",
+      "probability": 0.03253652058432935,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (3.3%)"
+    },
+    {
+      "ward_id": "024S",
+      "probability": 0.03253652058432935,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (3.3%)"
+    },
+    {
+      "ward_id": "047S",
+      "probability": 0.03253652058432935,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (3.3%)"
+    },
+    {
+      "ward_id": "031S",
+      "probability": 0.03253652058432935,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (3.3%)"
+    },
+    {
+      "ward_id": "033S",
+      "probability": 0.03253652058432935,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (3.3%)"
+    },
+    {
+      "ward_id": "034S",
+      "probability": 0.03253652058432935,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (3.3%)"
+    },
+    {
+      "ward_id": "002E",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "008E",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "019E",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "017E",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "040E",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "053E",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "082S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "012S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "010S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "014S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "020S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "048S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "086S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "080S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "037S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "038S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "075S",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "001N",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "101N",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "032N",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "045N",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "067N",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "066N",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "024N",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "027N",
+      "probability": 0.027288231949971573,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.7%)"
+    },
+    {
+      "ward_id": "059E",
+      "probability": 0.025974025974025976,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.6%)"
+    },
+    {
+      "ward_id": "048N",
+      "probability": 0.025974025974025976,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.6%)"
+    },
+    {
+      "ward_id": "036E",
+      "probability": 0.024844720496894408,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.5%)"
+    },
+    {
+      "ward_id": "004S",
+      "probability": 0.024844720496894408,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.5%)"
+    },
+    {
+      "ward_id": "065S",
+      "probability": 0.024844720496894408,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.5%)"
+    },
+    {
+      "ward_id": "012E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "011E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "009E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "001E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "004E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "005E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "018E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "031E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "029E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "033E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "038E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "022E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "016E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "015E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "014E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "025E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "026E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "027E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "043E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "042E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "041E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "048E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "050E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "046E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "047E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "045E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "060E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "062E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "061E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "058E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "054E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "055E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "024E",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "098S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "099S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "096S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "095S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "104S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "093S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "084S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "103S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "102S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "100S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "085S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "058S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "001S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "003S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "008S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "007S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "009S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "011S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "039S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "041S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "042S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "044S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "019S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "036S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "050S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "059S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "087S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "074S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "092S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "072S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "068S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "081S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "079S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "016S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "021S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "018S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "027S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "029S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "060S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "066S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "064S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "051S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "017S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "053S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "052S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "069S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "061S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "062S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "032S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "067S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "076S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "056S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "022S",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "003N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "004N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "030N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "035N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "039N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "007N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "019N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "068N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "033N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "040N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "044N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "034N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "028N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "041N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "055N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "056N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "037N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "052N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "049N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "050N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "038N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "064N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "022N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "021N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "016N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "011N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "025N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "046N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "054N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "059N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "058N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "102N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "096N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "084N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "083N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "014N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "077N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "076N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "078N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "080N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "079N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "074N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "072N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "073N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "098N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "097N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "094N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "090N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "091N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "089N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "085N",
+      "probability": 0.02334776878177368,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.3%)"
+    },
+    {
+      "ward_id": "010E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "003E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "030E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "034E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "035E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "032E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "021E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "049E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "044E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "064E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "056E",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "097S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "094S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "101S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "005S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "006S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "013S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "040S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "023S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "035S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "049S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "073S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "070S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "088S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "015S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "025S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "026S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "054S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "046S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "090S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "091S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "089S",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "002N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "005N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "029N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "036N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "009N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "008N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "020N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "057N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "031N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "069N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "047N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "065N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "063N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "026N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "053N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "095N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "082N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "017N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "081N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "093N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "086N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "013N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "104N",
+      "probability": 0.02108794632159118,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (2.1%)"
+    },
+    {
+      "ward_id": "020E",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "028E",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "037E",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "023E",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "083S",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "078S",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "002S",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "043S",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "071S",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "063S",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "030S",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "028S",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "057S",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "006N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "010N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "103N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "100N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "099N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "070N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "071N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "042N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "051N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "060N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "018N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "012N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "075N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "092N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "087N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "088N",
+      "probability": 0.019157088122605363,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "039E",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "013E",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "051E",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "063E",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "057E",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "052E",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "055S",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "077S",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "045S",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "023N",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "043N",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "062N",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "015N",
+      "probability": 0.019086176980913822,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    },
+    {
+      "ward_id": "061N",
+      "probability": 0.01867572156196944,
+      "risk_level": "low",
+      "rain_1h": 0.0,
+      "rain_3h": 0.0,
+      "explanation": "Risk: LOW (1.9%)"
+    }
+  ]
+}
