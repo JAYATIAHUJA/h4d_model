@@ -534,6 +534,134 @@ async def test_endpoint():
         }
     }
 
+@app.get("/api/preparedness/all")
+async def get_monsoon_preparedness():
+    """
+    Get Monsoon Preparedness Index for all wards.
+    
+    Returns preparedness scores (0-100) assessing infrastructure readiness,
+    historical resilience, and resource capacity for monsoon season.
+    """
+    try:
+        prep_file = Path("backend/data/processed/monsoon_preparedness_latest.csv")
+        
+        if not prep_file.exists():
+            raise HTTPException(
+                status_code=404, 
+                detail="Preparedness data not yet generated. Run calculate_mpi.py first."
+            )
+        
+        import pandas as pd
+        prep_df = pd.read_csv(prep_file)
+        
+        # Summary statistics
+        preparedness_summary = {
+            "excellent": len(prep_df[prep_df['preparedness_score'] >= 75]),
+            "good": len(prep_df[(prep_df['preparedness_score'] >= 60) & (prep_df['preparedness_score'] < 75)]),
+            "moderate": len(prep_df[(prep_df['preparedness_score'] >= 45) & (prep_df['preparedness_score'] < 60)]),
+            "poor": len(prep_df[(prep_df['preparedness_score'] >= 30) & (prep_df['preparedness_score'] < 45)]),
+            "critical": len(prep_df[prep_df['preparedness_score'] < 30])
+        }
+        
+        # Convert to list of dicts
+        wards_preparedness = prep_df.to_dict('records')
+        
+        return {
+            "timestamp": datetime.now().isoformat(),
+            "total_wards": len(prep_df),
+            "average_preparedness": round(prep_df['preparedness_score'].mean(), 1),
+            "preparedness_distribution": preparedness_summary,
+            "wards": wards_preparedness
+        }
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/preparedness/zones")
+async def get_zone_preparedness():
+    """
+    Get zone-level Monsoon Preparedness aggregation.
+    
+    Returns preparedness scores aggregated by MCD zones,
+    with priority rankings for intervention planning.
+    """
+    try:
+        zone_file = Path("backend/data/processed/zone_preparedness_latest.csv")
+        
+        if not zone_file.exists():
+            raise HTTPException(
+                status_code=404,
+                detail="Zone preparedness data not yet generated. Run calculate_mpi.py first."
+            )
+        
+        import pandas as pd
+        zone_df = pd.read_csv(zone_file)
+        
+        # Sort by preparedness (worst first)
+        zone_df = zone_df.sort_values('avg_preparedness')
+        
+        # Priority zones (bottom 3)
+        priority_zones = zone_df.head(3).to_dict('records')
+        
+        return {
+            "timestamp": datetime.now().isoformat(),
+            "total_zones": len(zone_df),
+            "average_preparedness": round(zone_df['avg_preparedness'].mean(), 1),
+            "priority_zones": priority_zones,
+            "all_zones": zone_df.to_dict('records')
+        }
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/preparedness/ward/{ward_id}")
+async def get_ward_preparedness(ward_id: str):
+    """
+    Get detailed Monsoon Preparedness assessment for a specific ward.
+    
+    Returns component breakdown, recommendations, and comparison to zone/city average.
+    """
+    try:
+        prep_file = Path("backend/data/processed/monsoon_preparedness_latest.csv")
+        
+        if not prep_file.exists():
+            raise HTTPException(
+                status_code=404,
+                detail="Preparedness data not yet generated."
+            )
+        
+        import pandas as pd
+        prep_df = pd.read_csv(prep_file)
+        
+        # Find ward
+        ward_data = prep_df[prep_df['ward_id'] == ward_id]
+        
+        if ward_data.empty:
+            raise HTTPException(status_code=404, detail=f"Ward {ward_id} not found")
+        
+        ward_info = ward_data.iloc[0].to_dict()
+        
+        # Add city average for comparison
+        city_avg = prep_df['preparedness_score'].mean()
+        ward_info['city_average'] = round(city_avg, 1)
+        ward_info['vs_city_avg'] = round(ward_info['preparedness_score'] - city_avg, 1)
+        
+        return {
+            "ward_id": ward_id,
+            "preparedness_assessment": ward_info,
+            "comparison": {
+                "city_average": round(city_avg, 1),
+                "difference": ward_info['vs_city_avg'],
+                "percentile": round((prep_df['preparedness_score'] < ward_info['preparedness_score']).sum() / len(prep_df) * 100, 1)
+            }
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/test/prediction")
 async def test_prediction_endpoint():

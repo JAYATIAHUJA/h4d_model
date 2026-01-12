@@ -1,13 +1,13 @@
 {
   "test_metrics": {
-    "auc_roc": 0.8342866579601538,
-    "auc_pr": 0.4877389954851153,
-    "brier_score": 0.045275673749359494,
-    "f1_score": 0.5109425407620543,
-    "accuracy": 0.9290879668259627
+    "auc_roc": 0.8226480367972786,
+    "auc_pr": 0.469855982421934,
+    "brier_score": 0.0458038963457332,
+    "f1_score": 0.5083538083538084,
+    "accuracy": 0.9323849428938298
   },
-  "cv_auc_mean": 0.8255262874212315,
-  "cv_auc_std": 0.003838559623196059,
+  "cv_auc_mean": 0.8302559880992468,
+  "cv_auc_std": 0.003168461965084278,
   "training_config": {
     "use_real_data": true,
     "synthetic_samples": 10000,
@@ -25,7 +25,7 @@
     "tune_hyperparameters": false,
     "use_class_weights": true
   },
-  "n_samples": 395488,
+  "n_samples": 295936,
   "n_features": 20,
   "feature_names": [
     "rain_1h",
@@ -49,5 +49,5 @@
     "rain_x_lowlying",
     "antecedent_stress"
   ],
-  "trained_at": "2026-01-12T04:09:47.350123"
+  "trained_at": "2026-01-12T08:11:40.637026"
 }

@@ -29,7 +29,12 @@ from weather_api import fetch_current_weather_delhi, fetch_forecast_delhi, calcu
 
 
 class MPICalculator:
-    """Calculate Multi-Parameter Index for each ward."""
+    """
+    Calculate Multi-Parameter Index (MPI) and Monsoon Preparedness Index.
+    
+    MPI: Real-time flood risk score (0-100)
+    Monsoon Preparedness Index: Infrastructure readiness assessment (0-100)
+    """
     
     def __init__(self):
         """Initialize MPI calculator with model and data."""
@@ -38,12 +43,24 @@ class MPICalculator:
         self.ward_static = None
         self.ward_historical = None
         self.civic_complaints = None
+        self.zone_preparedness = None
         
-    def load_model(self, model_path: str = "backend/model/artifacts/flood_model_v1.pkl"):
+    def load_model(self, model_path: str = None):
         """Load trained flood prediction model."""
         print("Loading flood prediction model...")
         try:
-            self.model = FloodFailureModel.load(model_path)
+            if model_path is None:
+                # Use absolute path
+                model_path = Path(__file__).parent / "model" / "artifacts" / "flood_model_v1.pkl"
+            
+            if not Path(model_path).exists():
+                print(f"[ERROR] Model file not found: {model_path}")
+                print("[INFO] Please train the model first by running:")
+                print("       cd backend/model")
+                print("       python train_model_1.py")
+                return False
+            
+            self.model = FloodFailureModel.load(str(model_path))
             self.feature_engineer = self.model.feature_engineer
             print("[OK] Model loaded")
             return True
@@ -59,7 +76,7 @@ class MPICalculator:
             pipeline.initialize()  # Initialize first to load everything
             
             # Override with enhanced features if available
-            enhanced_path = Path("backend/data/processed/ward_static_features_enhanced.csv")
+            enhanced_path = Path(__file__).parent / "data" / "processed" / "ward_static_features_enhanced.csv"
             if enhanced_path.exists():
                 print("  Using ENHANCED features (with Yamuna, buildings, roads)")
                 pipeline.ward_processor.load_features(str(enhanced_path))
@@ -84,7 +101,7 @@ class MPICalculator:
         print("Loading civic complaints data...")
         
         # Load sewerage complaints trend (2016-2022)
-        sewerage_path = Path("backend/data/processed/sewerage_complaints_yearly.csv")
+        sewerage_path = Path(__file__).parent / "data" / "processed" / "sewerage_complaints_yearly.csv"
         if sewerage_path.exists():
             sewerage_df = pd.read_csv(sewerage_path)
             # Use latest year as baseline, calculate growth rate
@@ -98,7 +115,7 @@ class MPICalculator:
             self.avg_sewerage_complaints = 95000
         
         # Load zone waste load
-        waste_path = Path("backend/data/processed/zone_waste_load.csv")
+        waste_path = Path(__file__).parent / "data" / "processed" / "zone_waste_load.csv"
         if waste_path.exists():
             self.zone_waste = pd.read_csv(waste_path)
             self.zone_waste['waste_per_capita'] = self.zone_waste['waste_tpd'] / self.zone_waste['population'] * 1000
@@ -107,7 +124,7 @@ class MPICalculator:
             self.zone_waste = None
         
         # Load pothole reports
-        pothole_path = Path("backend/data/processed/pothole_reports.csv")
+        pothole_path = Path(__file__).parent / "data" / "processed" / "pothole_reports.csv"
         if pothole_path.exists():
             pothole_df = pd.read_csv(pothole_path)
             # Aggregate by ward
@@ -120,7 +137,7 @@ class MPICalculator:
             self.pothole_by_ward = None
         
         # Legacy complaints data
-        complaints_path = Path("backend/data/processed/civic_complaints_ward.csv")
+        complaints_path = Path(__file__).parent / "data" / "processed" / "civic_complaints_ward.csv"
         if complaints_path.exists():
             self.civic_complaints = pd.read_csv(complaints_path, index_col='ward_id')
             print(f"  Legacy complaints: {len(self.civic_complaints)} wards")
@@ -138,6 +155,194 @@ class MPICalculator:
             self.civic_complaints['pothole_complaints'] = np.random.poisson(10, len(self.civic_complaints))
             
         return True
+    
+    def calculate_monsoon_preparedness(self) -> pd.DataFrame:
+        """
+        Calculate Monsoon Preparedness Index for each ward/zone.
+        
+        Preparedness Components (0-100 scale):
+        1. Infrastructure Capacity (30%): Drainage quality, maintenance
+        2. Historical Resilience (25%): How well ward handled past monsoons
+        3. Resource Readiness (20%): Emergency response capability
+        4. Vulnerability Gap (15%): Population at risk vs protection
+        5. Maintenance Score (10%): Recent infrastructure improvements
+        
+        Returns DataFrame with preparedness scores and recommendations
+        """
+        print("\n" + "=" * 70)
+        print("CALCULATING MONSOON PREPAREDNESS INDEX")
+        print("=" * 70)
+        
+        results = []
+        
+        for ward_id in self.ward_static.index:
+            static_feats = self.ward_static.loc[ward_id].to_dict()
+            hist_feats = self.ward_historical.loc[ward_id].to_dict()
+            
+            # 1. Infrastructure Capacity (30 points)
+            drain_density = static_feats.get('drain_density', 0)
+            drain_capacity = min(30, drain_density * 5)
+            
+            if self.civic_complaints is not None and ward_id in self.civic_complaints.index:
+                drainage_complaints = self.civic_complaints.loc[ward_id, 'drainage_complaints']
+                sewerage_complaints = self.civic_complaints.loc[ward_id, 'sewerage_complaints']
+                complaint_penalty = min(10, (drainage_complaints / 30) + (sewerage_complaints / 20))
+            else:
+                complaint_penalty = 0
+            
+            infra_capacity = max(0, drain_capacity - complaint_penalty)
+            
+            # 2. Historical Resilience (25 points)
+            hist_flood_freq = hist_feats.get('hist_flood_freq', 0)
+            monsoon_risk = hist_feats.get('monsoon_risk_score', 0.5)
+            
+            flood_resilience = max(0, 25 - (hist_flood_freq * 4))
+            risk_resilience = (1 - monsoon_risk) * 10
+            historical_resilience = flood_resilience + risk_resilience
+            
+            # 3. Resource Readiness (20 points)
+            if 'road_density' in static_feats:
+                road_access = min(10, static_feats['road_density'] * 2)
+            else:
+                road_access = 5
+            
+            if 'building_density' in static_feats:
+                building_factor = min(10, static_feats['building_density'] * 5)
+            else:
+                building_factor = 5
+            
+            resource_readiness = road_access + building_factor
+            
+            # 4. Vulnerability Gap (15 points)
+            low_lying_pct = static_feats.get('low_lying_pct', 15)
+            mean_elevation = static_feats.get('mean_elevation', 215)
+            
+            physical_vuln = (low_lying_pct / 30 * 8) + (max(0, 220 - mean_elevation) / 20 * 7)
+            vuln_gap = max(0, 15 - (physical_vuln - (infra_capacity / 3)))
+            
+            # 5. Maintenance Score (10 points)
+            if self.pothole_by_ward is not None:
+                ward_name = static_feats.get('ward_name', f'Ward_{ward_id}')
+                if ward_name in self.pothole_by_ward.index:
+                    potholes = self.pothole_by_ward.loc[ward_name, 'total_reports']
+                    maintenance_penalty = min(5, potholes / 4)
+                else:
+                    maintenance_penalty = 0
+            else:
+                maintenance_penalty = 0
+            
+            sewerage_penalty = self.sewerage_growth_rate * 3
+            maintenance_score = max(0, 10 - maintenance_penalty - sewerage_penalty)
+            
+            # Total Preparedness Score (0-100)
+            preparedness = (
+                infra_capacity + 
+                historical_resilience + 
+                resource_readiness + 
+                vuln_gap + 
+                maintenance_score
+            )
+            
+            # Preparedness Level
+            if preparedness >= 75:
+                prep_level = "Excellent"
+                recommendation = "Well-prepared. Maintain current standards."
+            elif preparedness >= 60:
+                prep_level = "Good"
+                recommendation = "Adequate preparation. Minor improvements needed."
+            elif preparedness >= 45:
+                prep_level = "Moderate"
+                recommendation = "Significant gaps. Prioritize drainage maintenance."
+            elif preparedness >= 30:
+                prep_level = "Poor"
+                recommendation = "Critical improvements needed before monsoon."
+            else:
+                prep_level = "Critical"
+                recommendation = "Emergency intervention required. High failure risk."
+            
+            # Identify top priority action
+            component_scores = {
+                'Infrastructure': infra_capacity,
+                'Resilience': historical_resilience,
+                'Resources': resource_readiness,
+                'Vulnerability': vuln_gap,
+                'Maintenance': maintenance_score
+            }
+            weakest = min(component_scores, key=component_scores.get)
+            
+            results.append({
+                'ward_id': ward_id,
+                'preparedness_score': round(preparedness, 1),
+                'preparedness_level': prep_level,
+                'infra_capacity': round(infra_capacity, 1),
+                'historical_resilience': round(historical_resilience, 1),
+                'resource_readiness': round(resource_readiness, 1),
+                'vulnerability_gap': round(vuln_gap, 1),
+                'maintenance_score': round(maintenance_score, 1),
+                'weakest_component': weakest,
+                'recommendation': recommendation,
+                'drain_density': drain_density,
+                'hist_flood_count': hist_flood_freq,
+            })
+        
+        df = pd.DataFrame(results)
+        
+        print(f"\nProcessed {len(df)} wards")
+        print(f"\nPreparedness Distribution:")
+        print(f"  Excellent (75-100): {len(df[df['preparedness_score'] >= 75])}")
+        print(f"  Good (60-74):       {len(df[(df['preparedness_score'] >= 60) & (df['preparedness_score'] < 75)])}")
+        print(f"  Moderate (45-59):   {len(df[(df['preparedness_score'] >= 45) & (df['preparedness_score'] < 60)])}")
+        print(f"  Poor (30-44):       {len(df[(df['preparedness_score'] >= 30) & (df['preparedness_score'] < 45)])}")
+        print(f"  Critical (<30):     {len(df[df['preparedness_score'] < 30])}")
+        print(f"\nAverage Preparedness: {df['preparedness_score'].mean():.1f}/100")
+        
+        return df
+    
+    def calculate_zone_preparedness(self, ward_preparedness: pd.DataFrame) -> pd.DataFrame:
+        """
+        Aggregate ward preparedness to zone level (12 MCD zones).
+        
+        Returns zone-level preparedness scores and priorities.
+        """
+        print("\n" + "=" * 70)
+        print("CALCULATING ZONE-LEVEL PREPAREDNESS")
+        print("=" * 70)
+        
+        # Create zone mapping from ward IDs
+        zone_mapping = {}
+        for ward_id in ward_preparedness['ward_id']:
+            zone_letter = ''.join(filter(str.isalpha, str(ward_id)))
+            if zone_letter:
+                zone_mapping[ward_id] = f"Zone_{zone_letter}"
+            else:
+                zone_mapping[ward_id] = "Zone_Unknown"
+        
+        ward_preparedness['zone'] = ward_preparedness['ward_id'].map(zone_mapping)
+        
+        # Aggregate by zone
+        zone_results = []
+        for zone_name, zone_df in ward_preparedness.groupby('zone'):
+            zone_results.append({
+                'zone': zone_name,
+                'avg_preparedness': round(zone_df['preparedness_score'].mean(), 1),
+                'min_preparedness': round(zone_df['preparedness_score'].min(), 1),
+                'max_preparedness': round(zone_df['preparedness_score'].max(), 1),
+                'ward_count': len(zone_df),
+                'critical_wards': len(zone_df[zone_df['preparedness_score'] < 30]),
+                'poor_wards': len(zone_df[zone_df['preparedness_score'] < 45]),
+                'top_weakness': zone_df['weakest_component'].mode()[0] if len(zone_df) > 0 else 'Unknown',
+                'avg_infra_capacity': round(zone_df['infra_capacity'].mean(), 1),
+                'avg_historical_resilience': round(zone_df['historical_resilience'].mean(), 1),
+            })
+        
+        zone_df = pd.DataFrame(zone_results).sort_values('avg_preparedness')
+        
+        print(f"\nZone Summary ({len(zone_df)} zones):")
+        for _, row in zone_df.head(5).iterrows():
+            print(f"  {row['zone']}: {row['avg_preparedness']}/100 "
+                  f"({row['critical_wards']} critical wards, weakness: {row['top_weakness']})")
+        
+        return zone_df
     
     def get_real_time_rainfall(self) -> dict:
         """Fetch real-time rainfall from OpenWeather API."""
@@ -381,11 +586,36 @@ def main():
     mpi_df = calc.calculate_mpi()
     
     # Generate report
-    output_path = Path("backend/data/processed/mpi_scores_latest.csv")
+    output_path = Path(__file__).parent / "data" / "processed" / "mpi_scores_latest.csv"
     calc.generate_mpi_report(mpi_df, save_path=output_path)
     
+    # Calculate Monsoon Preparedness Index
+    print("\n")
+    preparedness_df = calc.calculate_monsoon_preparedness()
+    prep_output_path = Path(__file__).parent / "data" / "processed" / "monsoon_preparedness_latest.csv"
+    preparedness_df.to_csv(prep_output_path, index=False)
+    print(f"\n✅ Preparedness scores saved to: {prep_output_path}")
+    
+    # Calculate zone-level preparedness
+    zone_prep_df = calc.calculate_zone_preparedness(preparedness_df)
+    zone_output_path = Path(__file__).parent / "data" / "processed" / "zone_preparedness_latest.csv"
+    zone_prep_df.to_csv(zone_output_path, index=False)
+    print(f"✅ Zone preparedness saved to: {zone_output_path}")
+    
+    # Show priority zones for intervention
+    print("\n" + "=" * 70)
+    print("🎯 PRIORITY ZONES FOR MONSOON PREPARATION")
+    print("=" * 70)
+    worst_zones = zone_prep_df.head(3)
+    for idx, row in worst_zones.iterrows():
+        print(f"\n{idx+1}. {row['zone']}")
+        print(f"   Preparedness: {row['avg_preparedness']}/100")
+        print(f"   Critical Wards: {row['critical_wards']}/{row['ward_count']}")
+        print(f"   Main Weakness: {row['top_weakness']}")
+        print(f"   Action: Focus on {row['top_weakness'].lower()} improvements")
+    
     # Also save for frontend
-    frontend_path = Path("frontend/public/data/ward_risk.json")
+    frontend_path = Path(__file__).parent.parent / "frontend" / "public" / "data" / "ward_risk.json"
     mpi_json = {}
     for _, row in mpi_df.iterrows():
         mpi_json[row['ward_id']] = {
