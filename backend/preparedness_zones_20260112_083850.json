@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-01-12T08:38:50.777073",
+  "total_zones": 3,
+  "average_preparedness": 47.6,
+  "priority_zones": [
+    {
+      "zone": "Zone_E",
+      "avg_preparedness": 45.2,
+      "min_preparedness": 25.5,
+      "max_preparedness": 65.7,
+      "ward_count": 64,
+      "critical_wards": 4,
+      "poor_wards": 33,
+      "top_weakness": "Infrastructure",
+      "avg_infra_capacity": 2.7,
+      "avg_historical_resilience": 18.0
+    },
+    {
+      "zone": "Zone_S",
+      "avg_preparedness": 47.7,
+      "min_preparedness": 26.9,
+      "max_preparedness": 66.7,
+      "ward_count": 104,
+      "critical_wards": 11,
+      "poor_wards": 34,
+      "top_weakness": "Infrastructure",
+      "avg_infra_capacity": 1.2,
+      "avg_historical_resilience": 20.6
+    },
+    {
+      "zone": "Zone_N",
+      "avg_preparedness": 49.8,
+      "min_preparedness": 28.7,
+      "max_preparedness": 70.8,
+      "ward_count": 104,
+      "critical_wards": 1,
+      "poor_wards": 27,
+      "top_weakness": "Infrastructure",
+      "avg_infra_capacity": 0.8,
+      "avg_historical_resilience": 22.1
+    }
+  ],
+  "all_zones": [
+    {
+      "zone": "Zone_E",
+      "avg_preparedness": 45.2,
+      "min_preparedness": 25.5,
+      "max_preparedness": 65.7,
+      "ward_count": 64,
+      "critical_wards": 4,
+      "poor_wards": 33,
+      "top_weakness": "Infrastructure",
+      "avg_infra_capacity": 2.7,
+      "avg_historical_resilience": 18.0
+    },
+    {
+      "zone": "Zone_S",
+      "avg_preparedness": 47.7,
+      "min_preparedness": 26.9,
+      "max_preparedness": 66.7,
+      "ward_count": 104,
+      "critical_wards": 11,
+      "poor_wards": 34,
+      "top_weakness": "Infrastructure",
+      "avg_infra_capacity": 1.2,
+      "avg_historical_resilience": 20.6
+    },
+    {
+      "zone": "Zone_N",
+      "avg_preparedness": 49.8,
+      "min_preparedness": 28.7,
+      "max_preparedness": 70.8,
+      "ward_count": 104,
+      "critical_wards": 1,
+      "poor_wards": 27,
+      "top_weakness": "Infrastructure",
+      "avg_infra_capacity": 0.8,
+      "avg_historical_resilience": 22.1
+    }
+  ]
+}

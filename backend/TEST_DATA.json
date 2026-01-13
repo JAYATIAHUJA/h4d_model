@@ -1,0 +1,703 @@
+{
+  "test_metadata": {
+    "created": "2026-01-12T12:00:00",
+    "description": "Test data for Model, MPI, and Preparedness testing",
+    "total_test_wards": 10,
+    "scenarios": ["low_risk", "moderate_risk", "high_risk", "critical_risk"]
+  },
+  
+  "test_wards": [
+    {
+      "ward_id": "TEST001",
+      "ward_name": "Test Ward - Low Risk (Good Infrastructure)",
+      "scenario": "low_risk",
+      
+      "static_features": {
+        "area_sqkm": 5.2,
+        "drain_density": 5.8,
+        "mean_elevation": 225.0,
+        "elevation_std": 8.5,
+        "low_lying_pct": 5.0,
+        "slope_mean": 2.5,
+        "road_density": 12.5,
+        "building_density": 0.35
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 0.0,
+        "monsoon_risk_score": 0.15,
+        "complaint_baseline": 12,
+        "sewerage_complaints": 8,
+        "drainage_complaints": 5,
+        "pothole_count": 3
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 2.0,
+        "rain_3h": 4.5,
+        "rain_6h": 8.0,
+        "rain_24h": 15.0,
+        "rain_intensity": 1.5,
+        "rain_forecast_3h": 3.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.02,
+        "mpi_score": 15.5,
+        "mpi_components": {
+          "model_prediction": 0.8,
+          "rainfall_severity": 0.0,
+          "historical_risk": 0.0,
+          "infrastructure_stress": 3.2,
+          "vulnerability": 2.5
+        },
+        "risk_level": "Low",
+        "preparedness_score": 82.5,
+        "preparedness_components": {
+          "infra_capacity": 28.5,
+          "historical_resilience": 24.8,
+          "resource_readiness": 18.2,
+          "vulnerability_gap": 14.5,
+          "maintenance_score": 9.5
+        },
+        "preparedness_level": "Excellent",
+        "weakest_component": "Infrastructure"
+      }
+    },
+    
+    {
+      "ward_id": "TEST002",
+      "ward_name": "Test Ward - Moderate Risk (Average Infrastructure)",
+      "scenario": "moderate_risk",
+      
+      "static_features": {
+        "area_sqkm": 7.5,
+        "drain_density": 3.2,
+        "mean_elevation": 212.0,
+        "elevation_std": 15.2,
+        "low_lying_pct": 18.0,
+        "slope_mean": 1.2,
+        "road_density": 8.5,
+        "building_density": 0.45
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 3.0,
+        "monsoon_risk_score": 0.52,
+        "complaint_baseline": 45,
+        "sewerage_complaints": 38,
+        "drainage_complaints": 22,
+        "pothole_count": 15
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 12.0,
+        "rain_3h": 28.0,
+        "rain_6h": 45.0,
+        "rain_24h": 65.0,
+        "rain_intensity": 8.5,
+        "rain_forecast_3h": 15.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.32,
+        "mpi_score": 42.8,
+        "mpi_components": {
+          "model_prediction": 12.8,
+          "rainfall_severity": 10.0,
+          "historical_risk": 7.5,
+          "infrastructure_stress": 8.5,
+          "vulnerability": 4.0
+        },
+        "risk_level": "Moderate",
+        "preparedness_score": 55.2,
+        "preparedness_components": {
+          "infra_capacity": 15.5,
+          "historical_resilience": 14.2,
+          "resource_readiness": 12.8,
+          "vulnerability_gap": 7.5,
+          "maintenance_score": 5.2
+        },
+        "preparedness_level": "Moderate",
+        "weakest_component": "Infrastructure"
+      }
+    },
+    
+    {
+      "ward_id": "TEST003",
+      "ward_name": "Test Ward - High Risk (Poor Drainage)",
+      "scenario": "high_risk",
+      
+      "static_features": {
+        "area_sqkm": 9.2,
+        "drain_density": 1.5,
+        "mean_elevation": 204.0,
+        "elevation_std": 22.5,
+        "low_lying_pct": 35.0,
+        "slope_mean": 0.6,
+        "road_density": 6.8,
+        "building_density": 0.52
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 6.0,
+        "monsoon_risk_score": 0.78,
+        "complaint_baseline": 125,
+        "sewerage_complaints": 105,
+        "drainage_complaints": 68,
+        "pothole_count": 42
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 35.0,
+        "rain_3h": 68.0,
+        "rain_6h": 95.0,
+        "rain_24h": 128.0,
+        "rain_intensity": 22.0,
+        "rain_forecast_3h": 40.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.68,
+        "mpi_score": 72.5,
+        "mpi_components": {
+          "model_prediction": 27.2,
+          "rainfall_severity": 20.0,
+          "historical_risk": 15.0,
+          "infrastructure_stress": 14.3,
+          "vulnerability": 8.0
+        },
+        "risk_level": "High",
+        "preparedness_score": 32.8,
+        "preparedness_components": {
+          "infra_capacity": 5.2,
+          "historical_resilience": 7.5,
+          "resource_readiness": 8.5,
+          "vulnerability_gap": 4.2,
+          "maintenance_score": 2.4
+        },
+        "preparedness_level": "Poor",
+        "weakest_component": "Infrastructure"
+      }
+    },
+    
+    {
+      "ward_id": "TEST004",
+      "ward_name": "Test Ward - Critical Risk (Emergency Zone)",
+      "scenario": "critical_risk",
+      
+      "static_features": {
+        "area_sqkm": 12.5,
+        "drain_density": 0.8,
+        "mean_elevation": 198.0,
+        "elevation_std": 28.5,
+        "low_lying_pct": 52.0,
+        "slope_mean": 0.3,
+        "road_density": 4.2,
+        "building_density": 0.65
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 10.0,
+        "monsoon_risk_score": 0.92,
+        "complaint_baseline": 235,
+        "sewerage_complaints": 195,
+        "drainage_complaints": 142,
+        "pothole_count": 88
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 55.0,
+        "rain_3h": 105.0,
+        "rain_6h": 148.0,
+        "rain_24h": 185.0,
+        "rain_intensity": 38.0,
+        "rain_forecast_3h": 62.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.89,
+        "mpi_score": 92.8,
+        "mpi_components": {
+          "model_prediction": 35.6,
+          "rainfall_severity": 20.0,
+          "historical_risk": 15.0,
+          "infrastructure_stress": 15.0,
+          "vulnerability": 10.0
+        },
+        "risk_level": "Critical",
+        "preparedness_score": 18.5,
+        "preparedness_components": {
+          "infra_capacity": 2.5,
+          "historical_resilience": 2.8,
+          "resource_readiness": 5.2,
+          "vulnerability_gap": 2.0,
+          "maintenance_score": 1.0
+        },
+        "preparedness_level": "Critical",
+        "weakest_component": "Infrastructure",
+        "recommendation": "Emergency intervention required. High failure risk."
+      }
+    },
+    
+    {
+      "ward_id": "TEST005",
+      "ward_name": "Test Ward - Zero Rain (Dry Season)",
+      "scenario": "no_rain",
+      
+      "static_features": {
+        "area_sqkm": 6.8,
+        "drain_density": 4.2,
+        "mean_elevation": 218.0,
+        "elevation_std": 12.0,
+        "low_lying_pct": 12.0,
+        "slope_mean": 1.8,
+        "road_density": 10.5,
+        "building_density": 0.38
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 2.0,
+        "monsoon_risk_score": 0.38,
+        "complaint_baseline": 28,
+        "sewerage_complaints": 22,
+        "drainage_complaints": 12,
+        "pothole_count": 8
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 0.0,
+        "rain_3h": 0.0,
+        "rain_6h": 0.0,
+        "rain_24h": 0.0,
+        "rain_intensity": 0.0,
+        "rain_forecast_3h": 0.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.01,
+        "mpi_score": 12.2,
+        "mpi_components": {
+          "model_prediction": 0.4,
+          "rainfall_severity": 0.0,
+          "historical_risk": 5.0,
+          "infrastructure_stress": 5.8,
+          "vulnerability": 1.0
+        },
+        "risk_level": "Low",
+        "preparedness_score": 68.5,
+        "preparedness_components": {
+          "infra_capacity": 22.5,
+          "historical_resilience": 18.2,
+          "resource_readiness": 15.8,
+          "vulnerability_gap": 10.5,
+          "maintenance_score": 7.5
+        },
+        "preparedness_level": "Good"
+      }
+    },
+    
+    {
+      "ward_id": "TEST006",
+      "ward_name": "Test Ward - Urban Dense (High Building Density)",
+      "scenario": "urban_flash_flood",
+      
+      "static_features": {
+        "area_sqkm": 4.5,
+        "drain_density": 2.8,
+        "mean_elevation": 210.0,
+        "elevation_std": 18.5,
+        "low_lying_pct": 22.0,
+        "slope_mean": 1.0,
+        "road_density": 18.5,
+        "building_density": 0.78
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 4.0,
+        "monsoon_risk_score": 0.65,
+        "complaint_baseline": 85,
+        "sewerage_complaints": 72,
+        "drainage_complaints": 48,
+        "pothole_count": 32
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 45.0,
+        "rain_3h": 82.0,
+        "rain_6h": 110.0,
+        "rain_24h": 142.0,
+        "rain_intensity": 32.0,
+        "rain_forecast_3h": 48.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.72,
+        "mpi_score": 78.5,
+        "mpi_components": {
+          "model_prediction": 28.8,
+          "rainfall_severity": 20.0,
+          "historical_risk": 10.0,
+          "infrastructure_stress": 12.5,
+          "vulnerability": 7.2
+        },
+        "risk_level": "High",
+        "preparedness_score": 42.5,
+        "preparedness_components": {
+          "infra_capacity": 12.5,
+          "historical_resilience": 10.8,
+          "resource_readiness": 11.2,
+          "vulnerability_gap": 5.5,
+          "maintenance_score": 3.5
+        },
+        "preparedness_level": "Moderate",
+        "weakest_component": "Maintenance"
+      }
+    },
+    
+    {
+      "ward_id": "TEST007",
+      "ward_name": "Test Ward - Historical Flood Hotspot",
+      "scenario": "repeat_flooder",
+      
+      "static_features": {
+        "area_sqkm": 8.5,
+        "drain_density": 1.2,
+        "mean_elevation": 202.0,
+        "elevation_std": 25.0,
+        "low_lying_pct": 42.0,
+        "slope_mean": 0.5,
+        "road_density": 7.2,
+        "building_density": 0.48
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 12.0,
+        "monsoon_risk_score": 0.88,
+        "complaint_baseline": 185,
+        "sewerage_complaints": 158,
+        "drainage_complaints": 102,
+        "pothole_count": 65
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 25.0,
+        "rain_3h": 52.0,
+        "rain_6h": 78.0,
+        "rain_24h": 105.0,
+        "rain_intensity": 18.0,
+        "rain_forecast_3h": 28.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.75,
+        "mpi_score": 82.5,
+        "mpi_components": {
+          "model_prediction": 30.0,
+          "rainfall_severity": 15.0,
+          "historical_risk": 15.0,
+          "infrastructure_stress": 14.5,
+          "vulnerability": 8.0
+        },
+        "risk_level": "High",
+        "preparedness_score": 22.8,
+        "preparedness_components": {
+          "infra_capacity": 4.5,
+          "historical_resilience": 3.2,
+          "resource_readiness": 6.8,
+          "vulnerability_gap": 3.5,
+          "maintenance_score": 1.8
+        },
+        "preparedness_level": "Critical",
+        "weakest_component": "Historical Resilience",
+        "recommendation": "Chronic flooding area. Comprehensive drainage upgrade required."
+      }
+    },
+    
+    {
+      "ward_id": "TEST008",
+      "ward_name": "Test Ward - Good Preparedness, Sudden Rain",
+      "scenario": "prepared_but_extreme_rain",
+      
+      "static_features": {
+        "area_sqkm": 6.2,
+        "drain_density": 5.2,
+        "mean_elevation": 220.0,
+        "elevation_std": 10.0,
+        "low_lying_pct": 8.0,
+        "slope_mean": 2.2,
+        "road_density": 11.8,
+        "building_density": 0.42
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 1.0,
+        "monsoon_risk_score": 0.25,
+        "complaint_baseline": 18,
+        "sewerage_complaints": 12,
+        "drainage_complaints": 8,
+        "pothole_count": 5
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 85.0,
+        "rain_3h": 142.0,
+        "rain_6h": 175.0,
+        "rain_24h": 195.0,
+        "rain_intensity": 52.0,
+        "rain_forecast_3h": 88.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.58,
+        "mpi_score": 68.5,
+        "mpi_components": {
+          "model_prediction": 23.2,
+          "rainfall_severity": 20.0,
+          "historical_risk": 2.5,
+          "infrastructure_stress": 4.8,
+          "vulnerability": 2.0
+        },
+        "risk_level": "High",
+        "preparedness_score": 76.5,
+        "preparedness_components": {
+          "infra_capacity": 25.8,
+          "historical_resilience": 22.5,
+          "resource_readiness": 16.8,
+          "vulnerability_gap": 12.5,
+          "maintenance_score": 8.9
+        },
+        "preparedness_level": "Good",
+        "weakest_component": "Vulnerability",
+        "note": "Extreme rainfall overwhelming otherwise good infrastructure"
+      }
+    },
+    
+    {
+      "ward_id": "TEST009",
+      "ward_name": "Test Ward - Edge Case (Very Low Elevation)",
+      "scenario": "depression_area",
+      
+      "static_features": {
+        "area_sqkm": 10.5,
+        "drain_density": 2.5,
+        "mean_elevation": 195.0,
+        "elevation_std": 32.0,
+        "low_lying_pct": 68.0,
+        "slope_mean": 0.2,
+        "road_density": 5.5,
+        "building_density": 0.55
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 9.0,
+        "monsoon_risk_score": 0.85,
+        "complaint_baseline": 165,
+        "sewerage_complaints": 142,
+        "drainage_complaints": 95,
+        "pothole_count": 58
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 18.0,
+        "rain_3h": 38.0,
+        "rain_6h": 62.0,
+        "rain_24h": 88.0,
+        "rain_intensity": 12.0,
+        "rain_forecast_3h": 22.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.78,
+        "mpi_score": 85.2,
+        "mpi_components": {
+          "model_prediction": 31.2,
+          "rainfall_severity": 15.0,
+          "historical_risk": 15.0,
+          "infrastructure_stress": 13.0,
+          "vulnerability": 10.0
+        },
+        "risk_level": "High",
+        "preparedness_score": 25.5,
+        "preparedness_components": {
+          "infra_capacity": 8.5,
+          "historical_resilience": 5.8,
+          "resource_readiness": 7.2,
+          "vulnerability_gap": 2.0,
+          "maintenance_score": 2.0
+        },
+        "preparedness_level": "Critical",
+        "weakest_component": "Vulnerability",
+        "recommendation": "Natural depression area. Requires pump stations and elevated infrastructure."
+      }
+    },
+    
+    {
+      "ward_id": "TEST010",
+      "ward_name": "Test Ward - Model Outlier (Good Stats, Bad History)",
+      "scenario": "statistical_anomaly",
+      
+      "static_features": {
+        "area_sqkm": 7.0,
+        "drain_density": 4.8,
+        "mean_elevation": 222.0,
+        "elevation_std": 9.5,
+        "low_lying_pct": 10.0,
+        "slope_mean": 2.0,
+        "road_density": 10.2,
+        "building_density": 0.40
+      },
+      
+      "historical_features": {
+        "hist_flood_freq": 7.0,
+        "monsoon_risk_score": 0.72,
+        "complaint_baseline": 95,
+        "sewerage_complaints": 82,
+        "drainage_complaints": 55,
+        "pothole_count": 38
+      },
+      
+      "rainfall_scenario": {
+        "rain_1h": 20.0,
+        "rain_3h": 42.0,
+        "rain_6h": 68.0,
+        "rain_24h": 92.0,
+        "rain_intensity": 14.0,
+        "rain_forecast_3h": 25.0
+      },
+      
+      "expected_outputs": {
+        "model_probability": 0.28,
+        "mpi_score": 55.5,
+        "mpi_components": {
+          "model_prediction": 11.2,
+          "rainfall_severity": 15.0,
+          "historical_risk": 15.0,
+          "infrastructure_stress": 11.3,
+          "vulnerability": 3.0
+        },
+        "risk_level": "Moderate",
+        "preparedness_score": 45.8,
+        "preparedness_components": {
+          "infra_capacity": 18.5,
+          "historical_resilience": 8.2,
+          "resource_readiness": 11.5,
+          "vulnerability_gap": 6.5,
+          "maintenance_score": 4.1
+        },
+        "preparedness_level": "Moderate",
+        "weakest_component": "Historical Resilience",
+        "note": "Good physical infrastructure but persistent operational issues causing historical floods"
+      }
+    }
+  ],
+  
+  "test_scenarios": {
+    "scenario_1_light_rain": {
+      "description": "Light rain across all wards",
+      "rainfall": {
+        "rain_1h": 5.0,
+        "rain_3h": 12.0,
+        "rain_6h": 20.0,
+        "rain_24h": 35.0,
+        "rain_forecast_3h": 8.0
+      },
+      "expected_behavior": "Most wards remain Low risk, only critical infrastructure shows Moderate"
+    },
+    
+    "scenario_2_moderate_rain": {
+      "description": "Moderate monsoon rain",
+      "rainfall": {
+        "rain_1h": 25.0,
+        "rain_3h": 50.0,
+        "rain_6h": 75.0,
+        "rain_24h": 100.0,
+        "rain_forecast_3h": 30.0
+      },
+      "expected_behavior": "50% wards move to Moderate, 20% to High, poor infrastructure critical"
+    },
+    
+    "scenario_3_heavy_rain": {
+      "description": "Heavy monsoon downpour",
+      "rainfall": {
+        "rain_1h": 50.0,
+        "rain_3h": 95.0,
+        "rain_6h": 130.0,
+        "rain_24h": 160.0,
+        "rain_forecast_3h": 55.0
+      },
+      "expected_behavior": "70% wards High or Critical, all poor infrastructure critical"
+    },
+    
+    "scenario_4_extreme_rain": {
+      "description": "Extreme flooding event (cloudburst)",
+      "rainfall": {
+        "rain_1h": 100.0,
+        "rain_3h": 180.0,
+        "rain_6h": 220.0,
+        "rain_24h": 250.0,
+        "rain_forecast_3h": 110.0
+      },
+      "expected_behavior": "90%+ wards Critical, system-wide emergency"
+    }
+  },
+  
+  "validation_checks": {
+    "mpi_score_range": {
+      "min": 0,
+      "max": 100,
+      "description": "MPI scores must be between 0-100"
+    },
+    "preparedness_score_range": {
+      "min": 0,
+      "max": 100,
+      "description": "Preparedness scores must be between 0-100"
+    },
+    "model_probability_range": {
+      "min": 0.0,
+      "max": 1.0,
+      "description": "Model probabilities must be between 0-1"
+    },
+    "risk_level_mapping": {
+      "Low": "0-30 MPI",
+      "Moderate": "30-50 MPI",
+      "High": "50-70 MPI",
+      "Critical": "70-100 MPI"
+    },
+    "preparedness_level_mapping": {
+      "Excellent": "75-100",
+      "Good": "60-74",
+      "Moderate": "45-59",
+      "Poor": "30-44",
+      "Critical": "0-29"
+    },
+    "component_weights": {
+      "mpi": {
+        "model_prediction": 40,
+        "rainfall_severity": 20,
+        "historical_risk": 15,
+        "infrastructure_stress": 15,
+        "vulnerability": 10
+      },
+      "preparedness": {
+        "infra_capacity": 30,
+        "historical_resilience": 25,
+        "resource_readiness": 20,
+        "vulnerability_gap": 15,
+        "maintenance_score": 10
+      }
+    }
+  },
+  
+  "usage_instructions": {
+    "how_to_test_model": "Send rainfall_scenario to POST /api/predict/ward with ward_id",
+    "how_to_test_mpi": "Backend calculates MPI automatically from model + features",
+    "how_to_test_preparedness": "GET /api/preparedness/ward/{ward_id}",
+    "compare_expected_vs_actual": "Compare expected_outputs with API responses",
+    "acceptable_tolerance": {
+      "mpi_score": "±3 points",
+      "preparedness_score": "±5 points",
+      "model_probability": "±0.05"
+    }
+  }
+}
